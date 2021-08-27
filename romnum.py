@@ -77,7 +77,8 @@ def get_cli_args():
     subparsers = parser.add_subparsers(
         title='subcommands',
         description='valid subcommands',
-        dest='subcommand')
+        dest='subcommand',
+        required=True)
 
     subparser_encode = subparsers.add_parser('encode')
     subparser_encode.add_argument('integer', type=int)
