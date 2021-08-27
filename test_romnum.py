@@ -22,6 +22,10 @@ class TestEncode(unittest.TestCase):
             with self.subTest(integer=int(integer)):
                 self.assertEqual(encode(int(integer)), romnum)
 
+    def test_invalid_integer(self):
+        with self.assertRaises(TypeError):
+            encode('abc')
+
 
 class TestDecode(unittest.TestCase):
 
