@@ -38,6 +38,14 @@ class TestDecode(unittest.TestCase):
         with self.assertRaises(RomanNumeralException):
             decode('CXXXXII')
 
+    def test_invalid_case(self):
+        with self.assertRaises(RomanNumeralException):
+            decode('mmxviii')
+
+    def test_invalid_characters(self):
+        with self.assertRaises(RomanNumeralException):
+            decode('xyz')
+
 
 if __name__ == '__main__':
     unittest.main()
