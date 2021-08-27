@@ -12,6 +12,8 @@ ROMNUM_PATT = (r'^(?=[MDCLXVI])M*'
                r'(I[XV]|V?I{0,3})$')
 
 
+# A dedicated Roman Numeral exception class which does not have any special
+# behavior; it purely exists for semantic purposes
 class RomanNumeralException(Exception):
     pass
 
