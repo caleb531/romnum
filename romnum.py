@@ -5,6 +5,7 @@ import json
 import re
 
 
+# A regular expression for describing strict Roman Numeral syntax
 ROMNUM_PATT = (r'^(?=[MDCLXVI])M*'
                r'(C[MD]|D?C{0,3})'
                r'(X[CL]|L?X{0,3})'
