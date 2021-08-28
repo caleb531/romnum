@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import json
-import unittest
+import nose.tools as nose
 
 from romnum import encode, decode, RomanNumeralException
 
@@ -15,41 +15,35 @@ def get_decoding_test_cases():
     return {value: key for key, value in get_encoding_test_cases().items()}
 
 
-class TestEncode(unittest.TestCase):
+class TestEncode(object):
 
     def test_encode(self):
         for integer, romnum in get_encoding_test_cases().items():
-            with self.subTest(integer=int(integer)):
-                self.assertEqual(encode(int(integer)), romnum)
+            yield nose.assert_equal, encode(int(integer)), romnum
 
     def test_invalid_integer(self):
-        with self.assertRaises(TypeError):
+        with nose.assert_raises(TypeError):
             encode('abc')
 
 
-class TestDecode(unittest.TestCase):
+class TestDecode(object):
 
     def test_decode(self):
         for romnum, integer in get_decoding_test_cases().items():
-            with self.subTest(romnum=romnum):
-                self.assertEqual(decode(romnum), int(integer))
+            yield nose.assert_equal, decode(romnum), int(integer)
 
     def test_invalid_order(self):
-        with self.assertRaises(RomanNumeralException):
+        with nose.assert_raises(RomanNumeralException):
             decode('CMMVII')
 
     def test_invalid_repetition(self):
-        with self.assertRaises(RomanNumeralException):
+        with nose.assert_raises(RomanNumeralException):
             decode('CXXXXII')
 
     def test_invalid_case(self):
-        with self.assertRaises(RomanNumeralException):
+        with nose.assert_raises(RomanNumeralException):
             decode('mmxviii')
 
     def test_invalid_characters(self):
-        with self.assertRaises(RomanNumeralException):
+        with nose.assert_raises(RomanNumeralException):
             decode('xyz')
-
-
-if __name__ == '__main__':
-    unittest.main()
