@@ -34,10 +34,15 @@ def get_decoding_map():
 # Encode the given integer as a roman numeral
 def encode(integer):
 
+    # Verify that the input is a valid integer
+    if not str(integer).isnumeric():
+        raise RomanNumeralException('Invalid integer: {}'.format(integer))
+
     encoding_map = get_encoding_map()
     romnum_parts = []
-    for i in reversed(range(len(str(integer)))):
-        integer_part = (integer % (10**(i + 1))) - (integer % (10**i))
+    integer_str = str(integer)
+    for i, digit in enumerate(integer_str):
+        integer_part = int(integer_str[i]) * (10**(len(integer_str) - i - 1))
         if str(integer_part) in encoding_map:
             romnum_parts.append(encoding_map[str(integer_part)])
         elif integer_part % 1000 == 0:

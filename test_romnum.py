@@ -22,7 +22,7 @@ class TestEncode(object):
             yield nose.assert_equal, encode(int(integer)), romnum
 
     def test_invalid_integer(self):
-        with nose.assert_raises(TypeError):
+        with nose.assert_raises(RomanNumeralException):
             encode('abc')
 
 
