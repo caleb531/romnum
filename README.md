@@ -3,6 +3,8 @@
 *Copyright 2021-2022 Caleb Evans*  
 *Released under the MIT license*
 
+[![tests](https://github.com/caleb531/romnum/actions/workflows/tests.yml/badge.svg)](https://github.com/caleb531/romnum/actions/workflows/tests.yml)
+
 This project is a Python 3 utility for converting Roman numerals. The tool is
 able to convert to and from Roman Numerals.
 
