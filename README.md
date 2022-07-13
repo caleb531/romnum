@@ -1,6 +1,6 @@
 # romnum
 
-*Copyright 2021 Caleb Evans*  
+*Copyright 2021-2022 Caleb Evans*  
 *Released under the MIT license*
 
 This project is a Python 3 utility for converting Roman numerals. The tool is
