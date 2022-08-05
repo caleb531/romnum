@@ -99,7 +99,7 @@ def main():
     cli_args = get_cli_args()
     if cli_args.subcommand == 'encode':
         print(encode(cli_args.integer))
-    elif cli_args.subcommand == 'decode':
+    elif cli_args.subcommand == 'decode':  # pragma: no branch
         print(decode(cli_args.romnum))
 
 

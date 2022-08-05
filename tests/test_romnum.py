@@ -2,8 +2,11 @@
 
 import json
 import unittest
+from contextlib import redirect_stdout
+from io import StringIO
+from unittest.mock import patch
 
-from romnum import encode, decode, RomanNumeralException
+from romnum import main, encode, decode, RomanNumeralException
 
 
 def get_encoding_test_cases():
@@ -24,6 +27,12 @@ class TestEncode(unittest.TestCase):
     def test_invalid_integer(self):
         with self.assertRaises(RomanNumeralException):
             encode('abc')
+
+    @patch('sys.argv', ['romnum.pyr', 'encode', '47'])
+    def test_main(self):
+        with redirect_stdout(StringIO()) as out:
+            main()
+            self.assertEqual(out.getvalue().rstrip(), 'XLVII')
 
 
 class TestDecode(unittest.TestCase):
@@ -47,3 +56,9 @@ class TestDecode(unittest.TestCase):
     def test_invalid_characters(self):
         with self.assertRaises(RomanNumeralException):
             decode('xyz')
+
+    @patch('sys.argv', ['romnum.pyr', 'decode', 'XLVII'])
+    def test_main(self):
+        with redirect_stdout(StringIO()) as out:
+            main()
+            self.assertEqual(out.getvalue().rstrip(), '47')
