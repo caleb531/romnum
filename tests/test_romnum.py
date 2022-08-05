@@ -7,7 +7,7 @@ from romnum import encode, decode, RomanNumeralException
 
 
 def get_encoding_test_cases():
-    with open('encoding_test_cases.json', 'r') as encoding_map_file:
+    with open('tests/encoding_test_cases.json', 'r') as encoding_map_file:
         return json.load(encoding_map_file)
 
 
