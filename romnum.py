@@ -89,7 +89,7 @@ def get_cli_args():
     subparser_encode.add_argument('integer', type=int)
 
     subparser_decode = subparsers.add_parser('decode')
-    subparser_decode.add_argument('romnum')
+    subparser_decode.add_argument('romnum', metavar='roman_numeral')
 
     return parser.parse_args()
 
