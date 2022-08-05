@@ -45,7 +45,7 @@ def encode(integer):
         integer_part = int(integer_str[i]) * (10**(len(integer_str) - i - 1))
         if str(integer_part) in encoding_map:
             romnum_parts.append(encoding_map[str(integer_part)])
-        elif integer_part % 1000 == 0:
+        elif integer_part % 1000 == 0:  # pragma: no branch
             romnum_parts.append(encoding_map['1000'] * (integer_part // 1000))
 
     return ''.join(romnum_parts)
