@@ -1,6 +1,6 @@
 # romnum
 
-*Copyright 2021-2022 Caleb Evans*  
+*Copyright 2021-2024 Caleb Evans*  
 *Released under the MIT license*
 
 [![tests](https://github.com/caleb531/romnum/actions/workflows/tests.yml/badge.svg)](https://github.com/caleb531/romnum/actions/workflows/tests.yml)
