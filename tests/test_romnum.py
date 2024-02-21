@@ -6,11 +6,11 @@ from contextlib import redirect_stdout
 from io import StringIO
 from unittest.mock import patch
 
-from romnum import main, encode, decode, RomanNumeralException
+from romnum import RomanNumeralException, decode, encode, main
 
 
 def get_encoding_test_cases():
-    with open('tests/encoding_test_cases.json', 'r') as encoding_map_file:
+    with open("tests/encoding_test_cases.json", "r") as encoding_map_file:
         return json.load(encoding_map_file)
 
 
@@ -26,13 +26,13 @@ class TestEncode(unittest.TestCase):
 
     def test_invalid_integer(self):
         with self.assertRaises(RomanNumeralException):
-            encode('abc')
+            encode("abc")
 
-    @patch('sys.argv', ['romnum.pyr', 'encode', '47'])
+    @patch("sys.argv", ["romnum.pyr", "encode", "47"])
     def test_main(self):
         with redirect_stdout(StringIO()) as out:
             main()
-            self.assertEqual(out.getvalue().rstrip(), 'XLVII')
+            self.assertEqual(out.getvalue().rstrip(), "XLVII")
 
 
 class TestDecode(unittest.TestCase):
@@ -43,22 +43,22 @@ class TestDecode(unittest.TestCase):
 
     def test_invalid_order(self):
         with self.assertRaises(RomanNumeralException):
-            decode('CMMVII')
+            decode("CMMVII")
 
     def test_invalid_repetition(self):
         with self.assertRaises(RomanNumeralException):
-            decode('CXXXXII')
+            decode("CXXXXII")
 
     def test_invalid_case(self):
         with self.assertRaises(RomanNumeralException):
-            decode('mmxviii')
+            decode("mmxviii")
 
     def test_invalid_characters(self):
         with self.assertRaises(RomanNumeralException):
-            decode('xyz')
+            decode("xyz")
 
-    @patch('sys.argv', ['romnum.pyr', 'decode', 'XLVII'])
+    @patch("sys.argv", ["romnum.pyr", "decode", "XLVII"])
     def test_main(self):
         with redirect_stdout(StringIO()) as out:
             main()
-            self.assertEqual(out.getvalue().rstrip(), '47')
+            self.assertEqual(out.getvalue().rstrip(), "47")
