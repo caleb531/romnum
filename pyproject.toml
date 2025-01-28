@@ -1,0 +1,55 @@
+[project]
+name = "romnum"
+version = "1.0.0-rc.1"
+description = "A bidirectional Roman numeral converter"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    {name = "Caleb Evans", email = "caleb@calebevans.me"}
+]
+maintainers = [
+    {name = 'Caleb Evans', email = 'caleb@calebevans.me'}
+]
+license = {file = 'LICENSE.txt'}
+keywords = ["roman", "numeral", "converter", "bidirectional"]
+
+[project.urls]
+homepage = "https://github.com/caleb531/romnum"
+documentation = "https://github.com/caleb531/romnum#readme"
+repository = "https://github.com/caleb531/romnum"
+changelog = "https://github.com/caleb531/romnum/releases"
+
+[project.scripts]
+romnum = "romnum:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.flake8]
+# Black compatibility
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+exclude = [".git", "build", "__pycache__", "*.egg-info", ".virtualenv"]
+
+# Per <https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html#profile>
+[tool.isort]
+profile = "black"
+
+# Configuration for coverage.py (https://pypi.python.org/pypi/coverage)
+
+[tool.coverage.run]
+# Enable branch coverage
+branch = true
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_lines = [
+    "pragma: no cover",
+    # Ignore non-runnable code
+    "if __name__ == .__main__.:",
+    "pass",
+]
+
+# Only check coverage for source files
+include = ["romnum.py"]
