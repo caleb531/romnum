@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import importlib.resources
 import json
 import re
 
@@ -19,7 +20,8 @@ class RomanNumeralException(Exception):
 # Return a dictionary map used for encoding common integers to their roman
 # numeral equivalents
 def get_encoding_map():
-    with open("encoding_map.json", "r") as encoding_map_file:
+    encoding_map_path = importlib.resources.files(__package__).joinpath("encoding_map.json")
+    with open(encoding_map_path, "r") as encoding_map_file:
         return json.load(encoding_map_file)
 
 

@@ -20,7 +20,10 @@ repository = "https://github.com/caleb531/romnum"
 changelog = "https://github.com/caleb531/romnum/releases"
 
 [project.scripts]
-romnum = "romnum:main"
+romnum = "romnum.__main__:main"
+
+[tool.setuptools.package-data]
+romnum = ["*.json"]
 
 [build-system]
 requires = ["setuptools"]
@@ -52,4 +55,4 @@ exclude_lines = [
 ]
 
 # Only check coverage for source files
-include = ["romnum.py"]
+include = ["romnum/*.py"]
