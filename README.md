@@ -17,7 +17,7 @@ is not supported.
 ### Installation
 
 ```sh
-pip install romnum
+pip3 install romnum
 ```
 
 ### Encoding
