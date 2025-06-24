@@ -33,7 +33,6 @@ build-backend = "setuptools.build_meta"
 dev = [
     "nose2==0.11.0",
     "ruff>=0.12.0",
-    "tomli==2.0.1",
 ]
 
 [tool.ruff]
