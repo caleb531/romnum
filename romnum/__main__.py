@@ -20,7 +20,9 @@ class RomanNumeralException(Exception):
 # Return a dictionary map used for encoding common integers to their roman
 # numeral equivalents
 def get_encoding_map():
-    encoding_map_path = importlib.resources.files(__package__).joinpath("encoding_map.json")
+    encoding_map_path = importlib.resources.files(__package__).joinpath(
+        "encoding_map.json"
+    )
     with open(encoding_map_path, "r") as encoding_map_file:
         return json.load(encoding_map_file)
 
@@ -33,7 +35,6 @@ def get_decoding_map():
 
 # Encode the given integer as a roman numeral
 def encode(integer):
-
     # Verify that the input is a valid integer
     if not str(integer).isnumeric():
         raise RomanNumeralException("Invalid integer: {}".format(integer))
@@ -52,7 +53,6 @@ def encode(integer):
 
 
 def decode(romnum):
-
     # Verify immediately if the given Roman Numeral is syntactically correct
     # before performing any conversion
     if not re.search(ROMNUM_PATT, romnum):
@@ -77,7 +77,6 @@ def decode(romnum):
 
 
 def get_cli_args():
-
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(
         title="subcommands",
@@ -96,7 +95,6 @@ def get_cli_args():
 
 
 def main():
-
     cli_args = get_cli_args()
     if cli_args.subcommand == "encode":
         print(encode(cli_args.integer))

@@ -19,7 +19,6 @@ def get_decoding_test_cases():
 
 
 class TestEncode(unittest.TestCase):
-
     def test_encode(self):
         for integer, romnum in get_encoding_test_cases().items():
             yield self.assertEqual, encode(int(integer)), romnum
@@ -36,7 +35,6 @@ class TestEncode(unittest.TestCase):
 
 
 class TestDecode(unittest.TestCase):
-
     def test_decode(self):
         for romnum, integer in get_decoding_test_cases().items():
             yield self.assertEqual, decode(romnum), int(integer)
