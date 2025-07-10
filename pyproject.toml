@@ -26,8 +26,12 @@ romnum = "romnum.__main__:main"
 romnum = ["*.json"]
 
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+requires = ["uv_build>=0.7.19,<0.8.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "romnum"
+module-root = ""
 
 [dependency-groups]
 dev = [
