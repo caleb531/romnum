@@ -16,8 +16,17 @@ is not supported.
 
 ### Installation
 
+You can install romnum via pip, *or* using your preferred package manager (like
+uv):
+
 ```sh
+# via pip
 pip3 install romnum
+```
+
+```sh
+# via uv
+uv tool install romnum
 ```
 
 ### Encoding
