@@ -35,7 +35,8 @@ module-root = ""
 
 [dependency-groups]
 dev = [
-    "nose2==0.11.0",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
     "ruff>=0.12.0",
     "tomli==2.0.1",
 ]
